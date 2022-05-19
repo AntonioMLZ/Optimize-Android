@@ -20,10 +20,18 @@ class _InicioWidgetState extends State<InicioWidget> {
       key: scaffoldKey,
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).primaryColor,
-        automaticallyImplyLeading: true,
+        automaticallyImplyLeading: false,
+        title: Text(
+          'Optimiza tu Android ',
+          style: FlutterFlowTheme.of(context).title2.override(
+                fontFamily: 'Poppins',
+                color: Colors.white,
+                fontSize: 22,
+              ),
+        ),
         actions: [],
-        centerTitle: true,
-        elevation: 4,
+        centerTitle: false,
+        elevation: 2,
       ),
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
     );
