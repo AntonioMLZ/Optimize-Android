@@ -9,7 +9,7 @@ class FFLocalizations {
   static FFLocalizations of(BuildContext context) =>
       Localizations.of<FFLocalizations>(context, FFLocalizations);
 
-  static List<String> languages() => ['es'];
+  static List<String> languages() => ['en'];
 
   String get languageCode => locale.languageCode;
   int get languageIndex => languages().contains(languageCode)
@@ -20,9 +20,9 @@ class FFLocalizations {
       (kTranslationsMap[key] ?? {})[locale.languageCode] ?? '';
 
   String getVariableText({
-    String esText = '',
+    String enText = '',
   }) =>
-      [esText][languageIndex] ?? '';
+      [enText][languageIndex] ?? '';
 }
 
 class FFLocalizationsDelegate extends LocalizationsDelegate<FFLocalizations> {

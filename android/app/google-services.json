@@ -8,6 +8,50 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:86043920032:android:08bf8af527e55546a06bc5",
+        "android_client_info": {
+          "package_name": "antoniomlz.optimizandroid.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "86043920032-hucs2ao1ifr4i01l5g7n5camsutnsoo0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "antoniomlz.optimizandroid.com",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "86043920032-jn84ogln8mnlfjc9s6jioqhkovgp6qp0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSTaTR9UzbTHNjndPnhJTQhI0HVf4a-Zs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "86043920032-jn84ogln8mnlfjc9s6jioqhkovgp6qp0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "86043920032-ddq98l8hllqu47tleskoseo1qqkunt5u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "antoniomlz.optimizandroid.com"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:86043920032:android:60a1730c60e2f68da06bc5",
         "android_client_info": {
           "package_name": "com.AntonioMLZ.optimizaandroid"
@@ -40,10 +84,54 @@
               "client_type": 3
             },
             {
-              "client_id": "86043920032-hmonkf97b959d9902htmesuhts1fch0d.apps.googleusercontent.com",
+              "client_id": "86043920032-ddq98l8hllqu47tleskoseo1qqkunt5u.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.AntonioMLZ.optimizaandroid"
+                "bundle_id": "antoniomlz.optimizandroid.com"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:86043920032:android:0703fb51ec2dd400a06bc5",
+        "android_client_info": {
+          "package_name": "com.antoniomlz.optimiza"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "86043920032-tdn0t07f0dje0sjhau26pmk977j3nl3m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.antoniomlz.optimiza",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "86043920032-jn84ogln8mnlfjc9s6jioqhkovgp6qp0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSTaTR9UzbTHNjndPnhJTQhI0HVf4a-Zs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "86043920032-jn84ogln8mnlfjc9s6jioqhkovgp6qp0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "86043920032-ddq98l8hllqu47tleskoseo1qqkunt5u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "antoniomlz.optimizandroid.com"
               }
             }
           ]

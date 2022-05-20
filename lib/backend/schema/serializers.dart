@@ -1,7 +1,11 @@
 import 'package:built_value/standard_json_plugin.dart';
 
-import 'apps_recomendadas_record.dart';
-import 'pictures_record.dart';
+import 'users_record.dart';
+import 'apps_record.dart';
+import 'post_record.dart';
+import 'pages_record.dart';
+import 'pages2_record.dart';
+import 'splash_image_record.dart';
 
 import 'index.dart';
 
@@ -12,8 +16,12 @@ part 'serializers.g.dart';
 const kDocumentReferenceField = 'Document__Reference__Field';
 
 @SerializersFor(const [
-  AppsRecomendadasRecord,
-  PicturesRecord,
+  UsersRecord,
+  AppsRecord,
+  PostRecord,
+  PagesRecord,
+  Pages2Record,
+  SplashImageRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())

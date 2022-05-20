@@ -1,7 +1,10 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'auth/firebase_user_provider.dart';
+import 'auth/auth_util.dart';
+
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
@@ -12,7 +15,6 @@ import 'index.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  await FlutterFlowTheme.initialize();
 
   runApp(MyApp());
 }
@@ -28,12 +30,35 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Locale _locale;
-  ThemeMode _themeMode = FlutterFlowTheme.themeMode;
+  ThemeMode _themeMode = ThemeMode.system;
+
+  Stream<OptimizaAndroidFirebaseUser> userStream;
+  OptimizaAndroidFirebaseUser initialUser;
+  bool displaySplashImage = true;
+
+  final authUserSub = authenticatedUserStream.listen((_) {});
+
+  @override
+  void initState() {
+    super.initState();
+    userStream = optimizaAndroidFirebaseUserStream()
+      ..listen((user) => initialUser ?? setState(() => initialUser = user));
+    Future.delayed(
+      Duration(seconds: 1),
+      () => setState(() => displaySplashImage = false),
+    );
+  }
+
+  @override
+  void dispose() {
+    authUserSub.cancel();
+
+    super.dispose();
+  }
 
   void setLocale(Locale value) => setState(() => _locale = value);
   void setThemeMode(ThemeMode mode) => setState(() {
         _themeMode = mode;
-        FlutterFlowTheme.saveThemeMode(mode);
       });
 
   @override
@@ -47,13 +72,25 @@ class _MyAppState extends State<MyApp> {
         GlobalCupertinoLocalizations.delegate,
       ],
       locale: _locale,
-      supportedLocales: const [
-        Locale('es', ''),
-      ],
+      supportedLocales: const [Locale('en', '')],
       theme: ThemeData(brightness: Brightness.light),
-      darkTheme: ThemeData(brightness: Brightness.dark),
       themeMode: _themeMode,
-      home: NavBarPage(),
+      home: initialUser == null || displaySplashImage
+          ? Container(
+              color: Colors.transparent,
+              child: Center(
+                child: Builder(
+                  builder: (context) => Image.asset(
+                    'assets/images/todo_0.0_Splash@3x.png',
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    fit: BoxFit.fitWidth,
+                  ),
+                ),
+              ),
+            )
+          : currentUser.loggedIn
+              ? NavBarPage()
+              : SplashScreenWidget(),
     );
   }
 }
@@ -69,7 +106,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPage = 'Inicio';
+  String _currentPage = 'myTasks';
 
   @override
   void initState() {
@@ -80,8 +117,9 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'Inicio': InicioWidget(),
-      'AppsRecomendadas': AppsRecomendadasWidget(),
+      'myTasks': MyTasksWidget(),
+      'Apps': AppsWidget(),
+      'MyProfile': MyProfileWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPage);
     return Scaffold(
@@ -89,9 +127,9 @@ class _NavBarPageState extends State<NavBarPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: (i) => setState(() => _currentPage = tabs.keys.toList()[i]),
-        backgroundColor: FlutterFlowTheme.of(context).black600,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBlack,
         selectedItemColor: FlutterFlowTheme.of(context).primaryColor,
-        unselectedItemColor: Color(0x8AFFFFFF),
+        unselectedItemColor: FlutterFlowTheme.of(context).tertiaryColor,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
@@ -99,25 +137,37 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home_outlined,
-              size: 24,
+              size: 32,
             ),
             activeIcon: Icon(
-              Icons.home,
-              size: 24,
+              Icons.home_rounded,
+              size: 32,
             ),
-            label: 'Home',
+            label: 'My Tasks',
             tooltip: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.recent_actors_rounded,
-              size: 24,
+              Icons.android_outlined,
+              size: 32,
             ),
             activeIcon: Icon(
-              Icons.recent_actors_outlined,
-              size: 24,
+              Icons.android_outlined,
+              size: 32,
             ),
-            label: 'Apps Recomendadas',
+            label: 'My Tasks',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person_outline,
+              size: 32,
+            ),
+            activeIcon: Icon(
+              Icons.person_sharp,
+              size: 32,
+            ),
+            label: 'Home',
             tooltip: '',
           )
         ],

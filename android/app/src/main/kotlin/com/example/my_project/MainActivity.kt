@@ -1,4 +1,4 @@
-package com.AntonioMLZ.optimizaandroid
+package com.antoniomlz.optimiza
 
 import io.flutter.embedding.android.FlutterActivity
 
