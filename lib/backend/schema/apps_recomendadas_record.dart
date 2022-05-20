@@ -12,12 +12,19 @@ abstract class AppsRecomendadasRecord
       _$appsRecomendadasRecordSerializer;
 
   @nullable
-  @BuiltValueField(wireName: 'Name')
-  BuiltList<String> get name;
+  @BuiltValueField(wireName: 'nombre_app')
+  String get nombreApp;
 
   @nullable
-  @BuiltValueField(wireName: 'Urlmage')
-  BuiltList<String> get urlmage;
+  @BuiltValueField(wireName: 'image_app')
+  String get imageApp;
+
+  @nullable
+  String get descargar;
+
+  @nullable
+  @BuiltValueField(wireName: 'Descripcion')
+  String get descripcion;
 
   @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
@@ -25,8 +32,10 @@ abstract class AppsRecomendadasRecord
 
   static void _initializeBuilder(AppsRecomendadasRecordBuilder builder) =>
       builder
-        ..name = ListBuilder()
-        ..urlmage = ListBuilder();
+        ..nombreApp = ''
+        ..imageApp = ''
+        ..descargar = ''
+        ..descripcion = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('appsRecomendadas');
@@ -51,9 +60,16 @@ abstract class AppsRecomendadasRecord
           {...mapFromFirestore(data), kDocumentReferenceField: reference});
 }
 
-Map<String, dynamic> createAppsRecomendadasRecordData() =>
+Map<String, dynamic> createAppsRecomendadasRecordData({
+  String nombreApp,
+  String imageApp,
+  String descargar,
+  String descripcion,
+}) =>
     serializers.toFirestore(
         AppsRecomendadasRecord.serializer,
         AppsRecomendadasRecord((a) => a
-          ..name = null
-          ..urlmage = null));
+          ..nombreApp = nombreApp
+          ..imageApp = imageApp
+          ..descargar = descargar
+          ..descripcion = descripcion));

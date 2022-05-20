@@ -30,16 +30,6 @@ class _MyAppState extends State<MyApp> {
   Locale _locale;
   ThemeMode _themeMode = FlutterFlowTheme.themeMode;
 
-  bool displaySplashImage = true;
-
-  @override
-  void initState() {
-    super.initState();
-
-    Future.delayed(
-        Duration(seconds: 1), () => setState(() => displaySplashImage = false));
-  }
-
   void setLocale(Locale value) => setState(() => _locale = value);
   void setThemeMode(ThemeMode mode) => setState(() {
         _themeMode = mode;
@@ -63,17 +53,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(brightness: Brightness.light),
       darkTheme: ThemeData(brightness: Brightness.dark),
       themeMode: _themeMode,
-      home: displaySplashImage
-          ? Container(
-              color: Colors.transparent,
-              child: Builder(
-                builder: (context) => Image.asset(
-                  'assets/images/giphy_s.gif',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            )
-          : NavBarPage(),
+      home: NavBarPage(),
     );
   }
 }
@@ -109,9 +89,9 @@ class _NavBarPageState extends State<NavBarPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: (i) => setState(() => _currentPage = tabs.keys.toList()[i]),
-        backgroundColor: Colors.white,
+        backgroundColor: FlutterFlowTheme.of(context).black600,
         selectedItemColor: FlutterFlowTheme.of(context).primaryColor,
-        unselectedItemColor: Color(0x8A000000),
+        unselectedItemColor: Color(0x8AFFFFFF),
         showSelectedLabels: false,
         showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,

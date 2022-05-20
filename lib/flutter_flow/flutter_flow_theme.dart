@@ -40,6 +40,12 @@ abstract class FlutterFlowTheme {
 
   Color primaryBtnText;
   Color lineColor;
+  Color grayIcon;
+  Color gray200;
+  Color gray600;
+  Color black600;
+  Color tertiary400;
+  Color textColor;
 
   TextStyle get title1 => GoogleFonts.getFont(
         'Poppins',
@@ -97,6 +103,12 @@ class LightModeTheme extends FlutterFlowTheme {
 
   Color primaryBtnText = Color(0xFFFFFFFF);
   Color lineColor = Color(0xFFE0E3E7);
+  Color grayIcon = Color(0xFF95A1AC);
+  Color gray200 = Color(0xFFDBE2E7);
+  Color gray600 = Color(0xFF262D34);
+  Color black600 = Color(0xFF090F13);
+  Color tertiary400 = Color(0xFF39D2C0);
+  Color textColor = Color(0xFF1E2429);
 }
 
 class DarkModeTheme extends FlutterFlowTheme {
@@ -111,6 +123,12 @@ class DarkModeTheme extends FlutterFlowTheme {
 
   Color primaryBtnText = Color(0xFFFFFFFF);
   Color lineColor = Color(0xFF22282F);
+  Color grayIcon = Color(0xFF95A1AC);
+  Color gray200 = Color(0xFFDBE2E7);
+  Color gray600 = Color(0xFF262D34);
+  Color black600 = Color(0xFF090F13);
+  Color tertiary400 = Color(0xFF39D2C0);
+  Color textColor = Color(0xFF1E2429);
 }
 
 extension TextStyleHelper on TextStyle {
