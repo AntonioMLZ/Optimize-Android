@@ -16,6 +16,12 @@ class _MyTasksWidgetState extends State<MyTasksWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
+  void initState() {
+    super.initState();
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'myTasks'});
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
@@ -77,13 +83,14 @@ class _MyTasksWidgetState extends State<MyTasksWidget> {
                         'assets/images/waves@2x.png',
                       ).image,
                     ),
+                    shape: BoxShape.rectangle,
                   ),
                 ),
               ],
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 35, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 45, 0, 0),
                 child: StreamBuilder<List<PostRecord>>(
                   stream: queryPostRecord(),
                   builder: (context, snapshot) {
@@ -115,7 +122,12 @@ class _MyTasksWidgetState extends State<MyTasksWidget> {
                             color: Color(0xFF303439),
                             elevation: 2,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(15),
+                                bottomRight: Radius.circular(15),
+                                topLeft: Radius.circular(35),
+                                topRight: Radius.circular(35),
+                              ),
                             ),
                             child: Padding(
                               padding:
@@ -123,28 +135,18 @@ class _MyTasksWidgetState extends State<MyTasksWidget> {
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        5, 15, 5, 0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  6, 0, 0, 0),
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(15),
-                                            child: Image.network(
-                                              listViewPostRecord.image,
-                                              width: 350,
-                                              height: 200,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.only(
+                                      bottomLeft: Radius.circular(0),
+                                      bottomRight: Radius.circular(0),
+                                      topLeft: Radius.circular(25),
+                                      topRight: Radius.circular(25),
+                                    ),
+                                    child: Image.network(
+                                      listViewPostRecord.image,
+                                      width: double.infinity,
+                                      height: 250,
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
                                   Column(

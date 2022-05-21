@@ -1,4 +1,5 @@
 import '../backend/backend.dart';
+import '../downloadapp/downloadapp_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -16,6 +17,12 @@ class AppsWidget extends StatefulWidget {
 
 class _AppsWidgetState extends State<AppsWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Apps'});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +92,7 @@ class _AppsWidgetState extends State<AppsWidget> {
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
                 child: StreamBuilder<List<AppsRecord>>(
                   stream: queryAppsRecord(),
                   builder: (context, snapshot) {
@@ -114,7 +121,7 @@ class _AppsWidgetState extends State<AppsWidget> {
                           width: MediaQuery.of(context).size.width,
                           height: 100,
                           decoration: BoxDecoration(
-                            color: Colors.black,
+                            color: Color(0x00FEFEFE),
                             boxShadow: [
                               BoxShadow(
                                 blurRadius: 3,
@@ -200,20 +207,41 @@ class _AppsWidgetState extends State<AppsWidget> {
                                       MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
-                                    FlutterFlowIconButton(
-                                      borderColor: Color(0x00FEFEFE),
-                                      borderRadius: 30,
-                                      borderWidth: 1,
-                                      buttonSize: 60,
-                                      fillColor: Colors.black,
-                                      icon: Icon(
-                                        Icons.cloud_download,
-                                        color: Color(0xFFE4E4E4),
-                                        size: 30,
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 10, 0, 0),
+                                      child: FlutterFlowIconButton(
+                                        borderColor: Color(0x00FEFEFE),
+                                        borderRadius: 30,
+                                        borderWidth: 1,
+                                        buttonSize: 60,
+                                        fillColor: Color(0x00FEFEFE),
+                                        icon: Icon(
+                                          Icons.cloud_download,
+                                          color: Color(0xFFE4E4E4),
+                                          size: 30,
+                                        ),
+                                        onPressed: () async {
+                                          logFirebaseEvent('IconButton_ON_TAP');
+                                          logFirebaseEvent(
+                                              'IconButton_Navigate-To');
+                                          await Navigator.push(
+                                            context,
+                                            PageTransition(
+                                              type: PageTransitionType
+                                                  .bottomToTop,
+                                              duration:
+                                                  Duration(milliseconds: 250),
+                                              reverseDuration:
+                                                  Duration(milliseconds: 250),
+                                              child: DownloadappWidget(
+                                                url: listViewAppsRecord
+                                                    .linkDescargar,
+                                              ),
+                                            ),
+                                          );
+                                        },
                                       ),
-                                      onPressed: () {
-                                        print('IconButton pressed ...');
-                                      },
                                     ),
                                   ],
                                 ),

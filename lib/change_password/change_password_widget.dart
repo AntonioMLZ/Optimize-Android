@@ -24,6 +24,8 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
   void initState() {
     super.initState();
     emailTextController = TextEditingController();
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'ChangePassword'});
   }
 
   @override
@@ -70,6 +72,8 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                 size: 30,
               ),
               onPressed: () async {
+                logFirebaseEvent('IconButton_ON_TAP');
+                logFirebaseEvent('IconButton_Navigate-Back');
                 Navigator.pop(context);
               },
             ),
@@ -171,7 +175,11 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                                       0, 0, 0, 16),
                                   child: FFButtonWidget(
                                     onPressed: () async {
+                                      logFirebaseEvent('emailAddress_ON_TAP');
+                                      logFirebaseEvent(
+                                          'emailAddress_Navigate-Back');
                                       Navigator.pop(context);
+                                      logFirebaseEvent('emailAddress_Auth');
                                       if (emailTextController.text.isEmpty) {
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(

@@ -28,6 +28,7 @@ class _LoginWidgetState extends State<LoginWidget> {
     emailTextController = TextEditingController();
     passwordTextController = TextEditingController();
     passwordVisibility = false;
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Login'});
   }
 
   @override
@@ -52,7 +53,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                     image: DecorationImage(
                       fit: BoxFit.fitWidth,
                       image: Image.asset(
-                        'assets/images/topSection@2x.png',
+                        'assets/images/Android.png',
                       ).image,
                     ),
                   ),
@@ -187,6 +188,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                               child: FFButtonWidget(
                                 onPressed: () async {
+                                  logFirebaseEvent('Button_ON_TAP');
+                                  logFirebaseEvent('Button_Auth');
+
                                   final user = await signInWithEmail(
                                     context,
                                     emailTextController.text,
@@ -252,6 +256,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     ),
                                     FFButtonWidget(
                                       onPressed: () async {
+                                        logFirebaseEvent('Button_ON_TAP');
+                                        logFirebaseEvent('Button_Navigate-To');
                                         await Navigator.push(
                                           context,
                                           PageTransition(

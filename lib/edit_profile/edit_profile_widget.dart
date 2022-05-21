@@ -30,6 +30,12 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
+  void initState() {
+    super.initState();
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'EditProfile'});
+  }
+
+  @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<UsersRecord>>(
       stream: queryUsersRecord(
@@ -72,6 +78,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                 size: 30,
               ),
               onPressed: () async {
+                logFirebaseEvent('IconButton_ON_TAP');
+                logFirebaseEvent('IconButton_Navigate-Back');
                 Navigator.pop(context);
               },
             ),
@@ -242,7 +250,12 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                           0, 0, 0, 16),
                                       child: FFButtonWidget(
                                         onPressed: () async {
+                                          logFirebaseEvent('Button_ON_TAP');
+                                          logFirebaseEvent(
+                                              'Button_Navigate-Back');
                                           Navigator.pop(context);
+                                          logFirebaseEvent(
+                                              'Button_Backend-Call');
 
                                           final usersUpdateData =
                                               createUsersRecordData(

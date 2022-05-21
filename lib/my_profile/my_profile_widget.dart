@@ -26,6 +26,12 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
+  void initState() {
+    super.initState();
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'MyProfile'});
+  }
+
+  @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<UsersRecord>>(
       stream: queryUsersRecord(
@@ -124,6 +130,8 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 8),
                         child: InkWell(
                           onTap: () async {
+                            logFirebaseEvent('Row_ON_TAP');
+                            logFirebaseEvent('Row_Navigate-To');
                             await Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -174,6 +182,8 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 8),
                         child: InkWell(
                           onTap: () async {
+                            logFirebaseEvent('Row_ON_TAP');
+                            logFirebaseEvent('Row_Navigate-To');
                             await Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -231,6 +241,8 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                   EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                               child: FFButtonWidget(
                                 onPressed: () async {
+                                  logFirebaseEvent('Button_ON_TAP');
+                                  logFirebaseEvent('Button_Navigate-To');
                                   await Navigator.push(
                                     context,
                                     PageTransition(
@@ -241,6 +253,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                       child: SplashScreenWidget(),
                                     ),
                                   );
+                                  logFirebaseEvent('Button_Auth');
                                   await signOut();
                                 },
                                 text: 'Log Out',

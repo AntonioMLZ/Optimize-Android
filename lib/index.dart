@@ -7,3 +7,4 @@ export 'apps/apps_widget.dart' show AppsWidget;
 export 'my_profile/my_profile_widget.dart' show MyProfileWidget;
 export 'change_password/change_password_widget.dart' show ChangePasswordWidget;
 export 'edit_profile/edit_profile_widget.dart' show EditProfileWidget;
+export 'downloadapp/downloadapp_widget.dart' show DownloadappWidget;

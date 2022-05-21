@@ -34,6 +34,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
     fullNameController = TextEditingController();
     passwordTextController = TextEditingController();
     passwordVisibility1 = false;
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Register'});
   }
 
   @override
@@ -55,7 +56,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   image: DecorationImage(
                     fit: BoxFit.fitWidth,
                     image: Image.asset(
-                      'assets/images/topSection@2x.png',
+                      'assets/images/Android.png',
                     ).image,
                   ),
                 ),
@@ -232,6 +233,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                 EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
                             child: FFButtonWidget(
                               onPressed: () async {
+                                logFirebaseEvent('Button_ON_TAP');
+                                logFirebaseEvent('Button_Auth');
                                 if (passwordTextController?.text !=
                                     confirmPasswordTextController?.text) {
                                   ScaffoldMessenger.of(context).showSnackBar(
@@ -315,6 +318,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                       0, 8, 0, 0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
+                                      logFirebaseEvent('Button_ON_TAP');
+                                      logFirebaseEvent('Button_Navigate-To');
                                       await Navigator.push(
                                         context,
                                         PageTransition(

@@ -19,6 +19,13 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
+  void initState() {
+    super.initState();
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'SplashScreen'});
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
@@ -108,6 +115,8 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                   EdgeInsetsDirectional.fromSTEB(0, 2, 0, 20),
                               child: FFButtonWidget(
                                 onPressed: () async {
+                                  logFirebaseEvent('Button_ON_TAP');
+                                  logFirebaseEvent('Button_Navigate-To');
                                   await Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -139,6 +148,8 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                             ),
                             FFButtonWidget(
                               onPressed: () async {
+                                logFirebaseEvent('Button_ON_TAP');
+                                logFirebaseEvent('Button_Navigate-To');
                                 await Navigator.push(
                                   context,
                                   MaterialPageRoute(

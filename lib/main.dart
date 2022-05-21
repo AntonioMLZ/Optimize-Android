@@ -72,19 +72,19 @@ class _MyAppState extends State<MyApp> {
         GlobalCupertinoLocalizations.delegate,
       ],
       locale: _locale,
-      supportedLocales: const [Locale('en', '')],
+      supportedLocales: const [
+        Locale('es', ''),
+      ],
       theme: ThemeData(brightness: Brightness.light),
       themeMode: _themeMode,
       home: initialUser == null || displaySplashImage
-          ? Container(
-              color: Colors.transparent,
-              child: Center(
-                child: Builder(
-                  builder: (context) => Image.asset(
-                    'assets/images/todo_0.0_Splash@3x.png',
-                    width: MediaQuery.of(context).size.width * 0.5,
-                    fit: BoxFit.fitWidth,
-                  ),
+          ? Center(
+              child: SizedBox(
+                width: 50,
+                height: 50,
+                child: SpinKitFadingCube(
+                  color: FlutterFlowTheme.of(context).primaryColor,
+                  size: 50,
                 ),
               ),
             )
