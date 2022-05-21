@@ -78,7 +78,9 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
               },
             ),
             title: Text(
-              'Change Password',
+              FFLocalizations.of(context).getText(
+                'lmmlxi3w' /* Change Password */,
+              ),
               style: FlutterFlowTheme.of(context).title2,
             ),
             actions: [],
@@ -87,145 +89,162 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
           ),
           backgroundColor: FlutterFlowTheme.of(context).darkBG,
           body: SafeArea(
-            child: Form(
-              key: formKey,
-              autovalidateMode: AutovalidateMode.always,
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).primaryBlack,
-                    ),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(2, 0, 0, 0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(10, 12, 0, 0),
-                            child: Text(
-                              'Ingrese su correo electrónico y le enviaremos un enlace de restablecimiento de contraseña a su correo electrónico para que lo actualice.',
-                              style: FlutterFlowTheme.of(context).bodyText2,
-                            ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
-                            child: TextFormField(
-                              controller: emailTextController,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                labelText: 'Email address here...',
-                                hintText:
-                                    'We will send a link to your email...',
-                                hintStyle: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Lexend Deca',
-                                      color: Color(0x9AFFFFFF),
-                                    ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).darkBG,
-                                    width: 1,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 650),
+              child: Form(
+                key: formKey,
+                autovalidateMode: AutovalidateMode.always,
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 200,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).primaryBlack,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(2, 0, 0, 0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(10, 12, 0, 0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  '7i1w12p8' /* Ingrese su correo electrónico ... */,
                                 ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).darkBG,
-                                    width: 1,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                filled: true,
-                                fillColor: FlutterFlowTheme.of(context).darkBG,
-                                prefixIcon: Icon(
-                                  Icons.email_outlined,
-                                  color: FlutterFlowTheme.of(context)
-                                      .tertiaryColor,
-                                ),
+                                style: FlutterFlowTheme.of(context).bodyText2,
                               ),
-                              style: FlutterFlowTheme.of(context).bodyText1,
-                              keyboardType: TextInputType.emailAddress,
-                              validator: (val) {
-                                if (val == null || val.isEmpty) {
-                                  return 'Please fill in a new password..';
-                                }
-
-                                return null;
-                              },
                             ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 16),
-                                  child: FFButtonWidget(
-                                    onPressed: () async {
-                                      logFirebaseEvent('emailAddress_ON_TAP');
-                                      logFirebaseEvent(
-                                          'emailAddress_Navigate-Back');
-                                      Navigator.pop(context);
-                                      logFirebaseEvent('emailAddress_Auth');
-                                      if (emailTextController.text.isEmpty) {
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(
-                                          SnackBar(
-                                            content: Text(
-                                              'Email required!',
-                                            ),
-                                          ),
-                                        );
-                                        return;
-                                      }
-                                      await resetPassword(
-                                        email: emailTextController.text,
-                                        context: context,
-                                      );
-                                    },
-                                    text: 'Send Link',
-                                    options: FFButtonOptions(
-                                      width: 230,
-                                      height: 50,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .subtitle2
-                                          .override(
-                                            fontFamily: 'Lexend Deca',
-                                            color: FlutterFlowTheme.of(context)
-                                                .white,
-                                          ),
-                                      elevation: 3,
-                                      borderSide: BorderSide(
-                                        color: Colors.transparent,
-                                        width: 1,
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
+                              child: TextFormField(
+                                controller: emailTextController,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  labelText:
+                                      FFLocalizations.of(context).getText(
+                                    'h0uz3c4w' /* Email address here... */,
+                                  ),
+                                  hintText: FFLocalizations.of(context).getText(
+                                    'yzzk2wx7' /* We will send a link to your em... */,
+                                  ),
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: Color(0x9AFFFFFF),
                                       ),
-                                      borderRadius: 8,
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color:
+                                          FlutterFlowTheme.of(context).darkBG,
+                                      width: 1,
                                     ),
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color:
+                                          FlutterFlowTheme.of(context).darkBG,
+                                      width: 1,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  filled: true,
+                                  fillColor:
+                                      FlutterFlowTheme.of(context).darkBG,
+                                  prefixIcon: Icon(
+                                    Icons.email_outlined,
+                                    color: FlutterFlowTheme.of(context)
+                                        .tertiaryColor,
                                   ),
                                 ),
-                              ],
+                                style: FlutterFlowTheme.of(context).bodyText1,
+                                keyboardType: TextInputType.emailAddress,
+                                validator: (val) {
+                                  if (val == null || val.isEmpty) {
+                                    return FFLocalizations.of(context).getText(
+                                      'uku2cgp5' /* Please fill in a new password.... */,
+                                    );
+                                  }
+
+                                  return null;
+                                },
+                              ),
                             ),
-                          ),
-                        ],
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 0, 16),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        logFirebaseEvent('emailAddress_ON_TAP');
+                                        logFirebaseEvent(
+                                            'emailAddress_Navigate-Back');
+                                        Navigator.pop(context);
+                                        logFirebaseEvent('emailAddress_Auth');
+                                        if (emailTextController.text.isEmpty) {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                'Email required!',
+                                              ),
+                                            ),
+                                          );
+                                          return;
+                                        }
+                                        await resetPassword(
+                                          email: emailTextController.text,
+                                          context: context,
+                                        );
+                                      },
+                                      text: FFLocalizations.of(context).getText(
+                                        'qkmzqq2x' /* Send Link */,
+                                      ),
+                                      options: FFButtonOptions(
+                                        width: 230,
+                                        height: 50,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryColor,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .subtitle2
+                                            .override(
+                                              fontFamily: 'Lexend Deca',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .white,
+                                            ),
+                                        elevation: 3,
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1,
+                                        ),
+                                        borderRadius: 8,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

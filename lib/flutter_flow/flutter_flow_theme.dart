@@ -19,6 +19,12 @@ abstract class FlutterFlowTheme {
   Color grayBG;
   Color darkBG;
   Color primaryBlack;
+  Color grayIcon;
+  Color gray200;
+  Color gray600;
+  Color black600;
+  Color tertiary400;
+  Color textColor;
 
   TextStyle get title1 => GoogleFonts.getFont(
         'Lexend Deca',
@@ -68,16 +74,22 @@ class LightModeTheme extends FlutterFlowTheme {
   Color primaryColor = const Color(0xFF42BEA5);
   Color secondaryColor = const Color(0xFF359F8A);
   Color tertiaryColor = const Color(0xFF95A1AC);
-  Color alternate = const Color(0x00000000);
-  Color primaryBackground = const Color(0x00000000);
-  Color secondaryBackground = const Color(0x00000000);
-  Color primaryText = const Color(0x00000000);
-  Color secondaryText = const Color(0x00000000);
+  Color alternate = const Color(0xFF39D2C0);
+  Color primaryBackground = const Color(0xFFF1F4F8);
+  Color secondaryBackground = const Color(0xFFFFFFFF);
+  Color primaryText = const Color(0xFF090F13);
+  Color secondaryText = const Color(0xFF95A1AC);
 
   Color white = Color(0xFFFFFFFF);
   Color grayBG = Color(0xFFDBE2E7);
   Color darkBG = Color(0xFF1A1F24);
   Color primaryBlack = Color(0xFF131619);
+  Color grayIcon = Color(0xFF95A1AC);
+  Color gray200 = Color(0xFFDBE2E7);
+  Color gray600 = Color(0xFF262D34);
+  Color black600 = Color(0xFF090F13);
+  Color tertiary400 = Color(0xFF39D2C0);
+  Color textColor = Color(0xFF1E2429);
 }
 
 extension TextStyleHelper on TextStyle {

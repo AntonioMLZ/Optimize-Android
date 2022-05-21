@@ -2,6 +2,7 @@ import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../change_password/change_password_widget.dart';
 import '../edit_profile/edit_profile_widget.dart';
+import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -64,13 +65,35 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
           appBar: AppBar(
             backgroundColor: FlutterFlowTheme.of(context).primaryColor,
             automaticallyImplyLeading: false,
+            leading: FlutterFlowIconButton(
+              borderColor: Colors.transparent,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 60,
+              icon: Icon(
+                Icons.arrow_back_rounded,
+                color: Colors.white,
+                size: 30,
+              ),
+              onPressed: () async {
+                logFirebaseEvent('IconButton_ON_TAP');
+                logFirebaseEvent('IconButton_Navigate-Back');
+                Navigator.pop(context);
+              },
+            ),
             title: Text(
-              'Bienvenido',
-              style: FlutterFlowTheme.of(context).title1,
+              FFLocalizations.of(context).getText(
+                'gw3looxg' /* Bienvenido */,
+              ),
+              style: FlutterFlowTheme.of(context).title2.override(
+                    fontFamily: 'Lexend Deca',
+                    color: Colors.white,
+                    fontSize: 22,
+                  ),
             ),
             actions: [],
-            centerTitle: false,
-            elevation: 0,
+            centerTitle: true,
+            elevation: 2,
           ),
           backgroundColor: FlutterFlowTheme.of(context).darkBG,
           body: SafeArea(
@@ -91,7 +114,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                         ),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(150, 0, 150, 0),
                         child: AuthUserStreamWidget(
                           child: Text(
                             currentUserDisplayName,
@@ -122,7 +145,9 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(16, 12, 0, 0),
                         child: Text(
-                          'Informacion de Cuenta',
+                          FFLocalizations.of(context).getText(
+                            'rc6pj6vt' /* Informacion de Cuenta */,
+                          ),
                           style: FlutterFlowTheme.of(context).bodyText2,
                         ),
                       ),
@@ -151,7 +176,9 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16, 8, 0, 16),
                                   child: Text(
-                                    'Editar Perfil',
+                                    FFLocalizations.of(context).getText(
+                                      'wkedutns' /* Editar Perfil */,
+                                    ),
                                     style:
                                         FlutterFlowTheme.of(context).bodyText1,
                                   ),
@@ -160,11 +187,27 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                               Padding(
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(0, 0, 12, 8),
-                                child: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: FlutterFlowTheme.of(context)
-                                      .tertiaryColor,
-                                  size: 24,
+                                child: InkWell(
+                                  onTap: () async {
+                                    logFirebaseEvent('Icon_ON_TAP');
+                                    logFirebaseEvent('Icon_Navigate-To');
+                                    await Navigator.push(
+                                      context,
+                                      PageTransition(
+                                        type: PageTransitionType.bottomToTop,
+                                        duration: Duration(milliseconds: 300),
+                                        reverseDuration:
+                                            Duration(milliseconds: 300),
+                                        child: EditProfileWidget(),
+                                      ),
+                                    );
+                                  },
+                                  child: Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: FlutterFlowTheme.of(context)
+                                        .tertiaryColor,
+                                    size: 24,
+                                  ),
                                 ),
                               ),
                             ],
@@ -200,7 +243,9 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16, 8, 0, 16),
                                   child: Text(
-                                    'Cambiar Password',
+                                    FFLocalizations.of(context).getText(
+                                      '3mq9qrgw' /* Cambiar Password */,
+                                    ),
                                     style:
                                         FlutterFlowTheme.of(context).bodyText1,
                                   ),
@@ -209,11 +254,27 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                               Padding(
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(0, 0, 12, 8),
-                                child: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: FlutterFlowTheme.of(context)
-                                      .tertiaryColor,
-                                  size: 24,
+                                child: InkWell(
+                                  onTap: () async {
+                                    logFirebaseEvent('Icon_ON_TAP');
+                                    logFirebaseEvent('Icon_Navigate-To');
+                                    await Navigator.push(
+                                      context,
+                                      PageTransition(
+                                        type: PageTransitionType.bottomToTop,
+                                        duration: Duration(milliseconds: 300),
+                                        reverseDuration:
+                                            Duration(milliseconds: 300),
+                                        child: ChangePasswordWidget(),
+                                      ),
+                                    );
+                                  },
+                                  child: Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: FlutterFlowTheme.of(context)
+                                        .tertiaryColor,
+                                    size: 24,
+                                  ),
                                 ),
                               ),
                             ],
@@ -256,7 +317,9 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                                   logFirebaseEvent('Button_Auth');
                                   await signOut();
                                 },
-                                text: 'Log Out',
+                                text: FFLocalizations.of(context).getText(
+                                  'oxkxgscp' /* Desconectar */,
+                                ),
                                 options: FFButtonOptions(
                                   width: 130,
                                   height: 50,
@@ -279,7 +342,9 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                               ),
                             ),
                             Text(
-                              'Optimize Android v1.0.0',
+                              FFLocalizations.of(context).getText(
+                                'lfe2fbdl' /* Optimize Android v1.0.0 */,
+                              ),
                               textAlign: TextAlign.center,
                               style: FlutterFlowTheme.of(context).bodyText2,
                             ),

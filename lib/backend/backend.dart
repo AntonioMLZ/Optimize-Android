@@ -10,6 +10,9 @@ import 'schema/post_record.dart';
 import 'schema/pages_record.dart';
 import 'schema/pages2_record.dart';
 import 'schema/splash_image_record.dart';
+import 'schema/alertas_record.dart';
+import 'schema/image_app_ajustes_record.dart';
+import 'schema/image_app_account_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -23,6 +26,9 @@ export 'schema/post_record.dart';
 export 'schema/pages_record.dart';
 export 'schema/pages2_record.dart';
 export 'schema/splash_image_record.dart';
+export 'schema/alertas_record.dart';
+export 'schema/image_app_ajustes_record.dart';
+export 'schema/image_app_account_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Stream<List<UsersRecord>> queryUsersRecord({
@@ -270,6 +276,132 @@ Future<FFFirestorePage<SplashImageRecord>> querySplashImageRecordPage({
     queryCollectionPage(
       SplashImageRecord.collection,
       SplashImageRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query AlertasRecords (as a Stream and as a Future).
+Stream<List<AlertasRecord>> queryAlertasRecord({
+  Query Function(Query) queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      AlertasRecord.collection,
+      AlertasRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<AlertasRecord>> queryAlertasRecordOnce({
+  Query Function(Query) queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      AlertasRecord.collection,
+      AlertasRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<AlertasRecord>> queryAlertasRecordPage({
+  Query Function(Query) queryBuilder,
+  DocumentSnapshot nextPageMarker,
+  int pageSize,
+  bool isStream,
+}) =>
+    queryCollectionPage(
+      AlertasRecord.collection,
+      AlertasRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query ImageAppAjustesRecords (as a Stream and as a Future).
+Stream<List<ImageAppAjustesRecord>> queryImageAppAjustesRecord({
+  Query Function(Query) queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ImageAppAjustesRecord.collection,
+      ImageAppAjustesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ImageAppAjustesRecord>> queryImageAppAjustesRecordOnce({
+  Query Function(Query) queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ImageAppAjustesRecord.collection,
+      ImageAppAjustesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<ImageAppAjustesRecord>> queryImageAppAjustesRecordPage({
+  Query Function(Query) queryBuilder,
+  DocumentSnapshot nextPageMarker,
+  int pageSize,
+  bool isStream,
+}) =>
+    queryCollectionPage(
+      ImageAppAjustesRecord.collection,
+      ImageAppAjustesRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query ImageAppAccountRecords (as a Stream and as a Future).
+Stream<List<ImageAppAccountRecord>> queryImageAppAccountRecord({
+  Query Function(Query) queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ImageAppAccountRecord.collection,
+      ImageAppAccountRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ImageAppAccountRecord>> queryImageAppAccountRecordOnce({
+  Query Function(Query) queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ImageAppAccountRecord.collection,
+      ImageAppAccountRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<ImageAppAccountRecord>> queryImageAppAccountRecordPage({
+  Query Function(Query) queryBuilder,
+  DocumentSnapshot nextPageMarker,
+  int pageSize,
+  bool isStream,
+}) =>
+    queryCollectionPage(
+      ImageAppAccountRecord.collection,
+      ImageAppAccountRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

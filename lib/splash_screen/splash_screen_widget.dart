@@ -124,7 +124,9 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                     ),
                                   );
                                 },
-                                text: 'Register',
+                                text: FFLocalizations.of(context).getText(
+                                  'anzqtwha' /* Register */,
+                                ),
                                 options: FFButtonOptions(
                                   width: 200,
                                   height: 50,
@@ -157,7 +159,9 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
                                   ),
                                 );
                               },
-                              text: 'Login',
+                              text: FFLocalizations.of(context).getText(
+                                '87jspd9v' /* Login */,
+                              ),
                               options: FFButtonOptions(
                                 width: 200,
                                 height: 50,

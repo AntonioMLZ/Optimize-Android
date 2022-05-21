@@ -22,13 +22,41 @@ abstract class PostRecord implements Built<PostRecord, PostRecordBuilder> {
   String get descripcion;
 
   @nullable
+  @BuiltValueField(wireName: 'Ubicacion')
+  String get ubicacion;
+
+  @nullable
+  @BuiltValueField(wireName: 'Imagenesadicioonales')
+  BuiltList<String> get imagenesadicioonales;
+
+  @nullable
+  String get categoria;
+
+  @nullable
+  String get cortadescripcion;
+
+  @nullable
+  @BuiltValueField(wireName: 'NameButton')
+  String get nameButton;
+
+  @nullable
+  @BuiltValueField(wireName: 'LinkButton')
+  String get linkButton;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
   static void _initializeBuilder(PostRecordBuilder builder) => builder
     ..image = ''
     ..name = ''
-    ..descripcion = '';
+    ..descripcion = ''
+    ..ubicacion = ''
+    ..imagenesadicioonales = ListBuilder()
+    ..categoria = ''
+    ..cortadescripcion = ''
+    ..nameButton = ''
+    ..linkButton = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('Post');
@@ -54,10 +82,21 @@ Map<String, dynamic> createPostRecordData({
   String image,
   String name,
   String descripcion,
+  String ubicacion,
+  String categoria,
+  String cortadescripcion,
+  String nameButton,
+  String linkButton,
 }) =>
     serializers.toFirestore(
         PostRecord.serializer,
         PostRecord((p) => p
           ..image = image
           ..name = name
-          ..descripcion = descripcion));
+          ..descripcion = descripcion
+          ..ubicacion = ubicacion
+          ..imagenesadicioonales = null
+          ..categoria = categoria
+          ..cortadescripcion = cortadescripcion
+          ..nameButton = nameButton
+          ..linkButton = linkButton));

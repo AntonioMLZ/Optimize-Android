@@ -77,8 +77,12 @@ class _LoginWidgetState extends State<LoginWidget> {
                               controller: emailTextController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Email Address',
-                                hintText: 'Your email...',
+                                labelText: FFLocalizations.of(context).getText(
+                                  'we28g2am' /* Email Address */,
+                                ),
+                                hintText: FFLocalizations.of(context).getText(
+                                  'x1bwp0hl' /* Your email... */,
+                                ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
@@ -114,7 +118,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                               keyboardType: TextInputType.emailAddress,
                               validator: (val) {
                                 if (val == null || val.isEmpty) {
-                                  return 'Please fill in a valid email address...';
+                                  return FFLocalizations.of(context).getText(
+                                    'e23h383h' /* Please fill in a valid email a... */,
+                                  );
                                 }
 
                                 return null;
@@ -127,8 +133,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 controller: passwordTextController,
                                 obscureText: !passwordVisibility,
                                 decoration: InputDecoration(
-                                  labelText: 'Password',
-                                  hintText: 'Enter your password here...',
+                                  labelText:
+                                      FFLocalizations.of(context).getText(
+                                    'fs48slfl' /* Password */,
+                                  ),
+                                  hintText: FFLocalizations.of(context).getText(
+                                    'me7ryugz' /* Enter your password here... */,
+                                  ),
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
@@ -176,7 +187,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 style: FlutterFlowTheme.of(context).bodyText1,
                                 validator: (val) {
                                   if (val == null || val.isEmpty) {
-                                    return 'That password doesn\'t match.';
+                                    return FFLocalizations.of(context).getText(
+                                      'r8dt13y6' /* That password doesn't match. */,
+                                    );
                                   }
 
                                   return null;
@@ -204,12 +217,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) =>
-                                          NavBarPage(initialPage: 'myTasks'),
+                                          NavBarPage(initialPage: 'Home'),
                                     ),
                                     (r) => false,
                                   );
                                 },
-                                text: 'Login',
+                                text: FFLocalizations.of(context).getText(
+                                  'c3hb8t27' /* Login */,
+                                ),
                                 options: FFButtonOptions(
                                   width: 200,
                                   height: 50,
@@ -243,7 +258,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 0, 0, 6),
                                       child: Text(
-                                        'Don’t have an account yet? ',
+                                        FFLocalizations.of(context).getText(
+                                          'iszm3vqb' /* Don’t have an account yet?  */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
@@ -270,7 +287,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           ),
                                         );
                                       },
-                                      text: 'Register',
+                                      text: FFLocalizations.of(context).getText(
+                                        'ln06xegs' /* Register */,
+                                      ),
                                       options: FFButtonOptions(
                                         width: 100,
                                         height: 32,

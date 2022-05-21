@@ -74,6 +74,7 @@ class _MyAppState extends State<MyApp> {
       locale: _locale,
       supportedLocales: const [
         Locale('es', ''),
+        Locale('en', ''),
       ],
       theme: ThemeData(brightness: Brightness.light),
       themeMode: _themeMode,
@@ -106,7 +107,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPage = 'myTasks';
+  String _currentPage = 'Home';
 
   @override
   void initState() {
@@ -117,9 +118,9 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'myTasks': MyTasksWidget(),
+      'Home': HomeWidget(),
       'Apps': AppsWidget(),
-      'MyProfile': MyProfileWidget(),
+      'Settings': SettingsWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPage);
     return Scaffold(
@@ -127,9 +128,9 @@ class _NavBarPageState extends State<NavBarPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: (i) => setState(() => _currentPage = tabs.keys.toList()[i]),
-        backgroundColor: FlutterFlowTheme.of(context).primaryBlack,
+        backgroundColor: FlutterFlowTheme.of(context).primaryText,
         selectedItemColor: FlutterFlowTheme.of(context).primaryColor,
-        unselectedItemColor: FlutterFlowTheme.of(context).tertiaryColor,
+        unselectedItemColor: Color(0xAA8C8F93),
         showSelectedLabels: false,
         showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
@@ -143,7 +144,9 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.home_rounded,
               size: 32,
             ),
-            label: 'My Tasks',
+            label: FFLocalizations.of(context).getText(
+              '8js6pl65' /* Home */,
+            ),
             tooltip: '',
           ),
           BottomNavigationBarItem(
@@ -155,19 +158,19 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.android_outlined,
               size: 32,
             ),
-            label: 'My Tasks',
+            label: FFLocalizations.of(context).getText(
+              'iq8fea4r' /* Apps */,
+            ),
             tooltip: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.person_outline,
-              size: 32,
+              Icons.settings,
+              size: 24,
             ),
-            activeIcon: Icon(
-              Icons.person_sharp,
-              size: 32,
+            label: FFLocalizations.of(context).getText(
+              'y43xqq76' /* Settings */,
             ),
-            label: 'Home',
             tooltip: '',
           )
         ],

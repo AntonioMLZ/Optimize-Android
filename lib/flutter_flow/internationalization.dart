@@ -9,7 +9,7 @@ class FFLocalizations {
   static FFLocalizations of(BuildContext context) =>
       Localizations.of<FFLocalizations>(context, FFLocalizations);
 
-  static List<String> languages() => ['es'];
+  static List<String> languages() => ['es', 'en'];
 
   String get languageCode => locale.languageCode;
   int get languageIndex => languages().contains(languageCode)
@@ -21,8 +21,9 @@ class FFLocalizations {
 
   String getVariableText({
     String esText = '',
+    String enText = '',
   }) =>
-      [esText][languageIndex] ?? '';
+      [esText, enText][languageIndex] ?? '';
 }
 
 class FFLocalizationsDelegate extends LocalizationsDelegate<FFLocalizations> {
@@ -40,5 +41,400 @@ class FFLocalizationsDelegate extends LocalizationsDelegate<FFLocalizations> {
   bool shouldReload(FFLocalizationsDelegate old) => false;
 }
 
-final kTranslationsMap =
-    <Map<String, Map<String, String>>>[].reduce((a, b) => a..addAll(b));
+final kTranslationsMap = <Map<String, Map<String, String>>>[
+  // SplashScreen
+  {
+    'anzqtwha': {
+      'es': 'Register',
+      'en': 'Register',
+    },
+    '87jspd9v': {
+      'es': 'Login',
+      'en': 'Login',
+    },
+    'rty74288': {
+      'es': 'Home',
+      'en': 'home',
+    },
+  },
+  // Login
+  {
+    'we28g2am': {
+      'es': 'Email Address',
+      'en': 'email address',
+    },
+    'x1bwp0hl': {
+      'es': 'Your email...',
+      'en': 'Your email...',
+    },
+    'fs48slfl': {
+      'es': 'Password',
+      'en': 'Password',
+    },
+    'me7ryugz': {
+      'es': 'Enter your password here...',
+      'en': 'Enter your password here...',
+    },
+    'c3hb8t27': {
+      'es': 'Login',
+      'en': 'Login',
+    },
+    'iszm3vqb': {
+      'es': 'Don’t have an account yet? ',
+      'en': 'Don&#39;t have an account yet?',
+    },
+    'ln06xegs': {
+      'es': 'Register',
+      'en': 'Register',
+    },
+    'e23h383h': {
+      'es': 'Please fill in a valid email address...',
+      'en': 'Please fill in a valid email address...',
+    },
+    'r8dt13y6': {
+      'es': 'That password doesn\'t match.',
+      'en': 'That password doesn&#39;t match.',
+    },
+    '6xbeu1as': {
+      'es': 'Home',
+      'en': 'home',
+    },
+  },
+  // Register
+  {
+    'ngcxqpgn': {
+      'es': 'Full Name',
+      'en': 'Full Name',
+    },
+    'zucr7f5l': {
+      'es': 'Enter your name here...',
+      'en': 'Enter your name here...',
+    },
+    'of0vt3em': {
+      'es': 'Email Address',
+      'en': 'email address',
+    },
+    'v3mlpimx': {
+      'es': 'Enter your email here...',
+      'en': 'Enter your email here...',
+    },
+    'o2i3rlks': {
+      'es': 'Password',
+      'en': 'Password',
+    },
+    'y058x2fx': {
+      'es': 'Enter your password here...',
+      'en': 'Enter your password here...',
+    },
+    'g92dekqo': {
+      'es': 'Confirm Password',
+      'en': 'Confirm Password',
+    },
+    'q9xcxcq6': {
+      'es': 'Confirm password here...',
+      'en': 'Confirm password here...',
+    },
+    '42qxyku2': {
+      'es': 'Create Account',
+      'en': 'Create Account',
+    },
+    'lsvdox2m': {
+      'es': 'Don’t have an account yet? ',
+      'en': 'Don&#39;t have an account yet?',
+    },
+    'vewopc9y': {
+      'es': 'Login',
+      'en': 'Login',
+    },
+    'm18n788r': {
+      'es': 'Home',
+      'en': 'home',
+    },
+  },
+  // Home
+  {
+    '17uf2phm': {
+      'es': 'Informacion:',
+      'en': 'Information:',
+    },
+    '8js6pl65': {
+      'es': 'Home',
+      'en': 'MyTasks',
+    },
+  },
+  // Apps
+  {
+    'iq8fea4r': {
+      'es': 'Apps',
+      'en': 'MyTasks',
+    },
+  },
+  // Settings
+  {
+    'ryxhz0n7': {
+      'es': 'Ajustes',
+      'en': '',
+    },
+    'y43xqq76': {
+      'es': 'Settings',
+      'en': '',
+    },
+  },
+  // MyProfile
+  {
+    'rc6pj6vt': {
+      'es': 'Informacion de Cuenta',
+      'en': 'Account info',
+    },
+    'wkedutns': {
+      'es': 'Editar Perfil',
+      'en': 'Edit profile',
+    },
+    '3mq9qrgw': {
+      'es': 'Cambiar Password',
+      'en': 'Change Password',
+    },
+    'oxkxgscp': {
+      'es': 'Desconectar',
+      'en': 'log out',
+    },
+    'lfe2fbdl': {
+      'es': 'Optimize Android v1.0.0',
+      'en': 'Optimize Android v1.0.0',
+    },
+    'gw3looxg': {
+      'es': 'Bienvenido',
+      'en': '',
+    },
+    'ekw7dqpc': {
+      'es': 'Home',
+      'en': 'home',
+    },
+  },
+  // ChangePassword
+  {
+    '7i1w12p8': {
+      'es':
+          'Ingrese su correo electrónico y le enviaremos un enlace de restablecimiento de contraseña a su correo electrónico para que lo actualice.',
+      'en':
+          'Enter your email and we&#39;ll send a password reset link to your email for you to update.',
+    },
+    'h0uz3c4w': {
+      'es': 'Email address here...',
+      'en': 'Email address here...',
+    },
+    'yzzk2wx7': {
+      'es': 'We will send a link to your email...',
+      'en': 'We will send a link to your email...',
+    },
+    'qkmzqq2x': {
+      'es': 'Send Link',
+      'en': 'Send Link',
+    },
+    'uku2cgp5': {
+      'es': 'Please fill in a new password..',
+      'en': 'Please fill in a new password..',
+    },
+    'lmmlxi3w': {
+      'es': 'Change Password',
+      'en': 'Change Password',
+    },
+    'tzkdow09': {
+      'es': 'Home',
+      'en': 'home',
+    },
+  },
+  // EditProfile
+  {
+    '5x88cg5k': {
+      'es': 'Update Account Information',
+      'en': 'Update Account Information',
+    },
+    'kvkv38wh': {
+      'es': 'Full Name',
+      'en': 'Full Name',
+    },
+    '17t3cgql': {
+      'es': 'Your email...',
+      'en': 'Your email...',
+    },
+    'e695zux8': {
+      'es': 'Email Address',
+      'en': 'email address',
+    },
+    'npphndqe': {
+      'es': 'Your email...',
+      'en': 'Your email...',
+    },
+    '9rdaj1gt': {
+      'es': 'Save Changes',
+      'en': 'Save Changes',
+    },
+    't43bik93': {
+      'es': 'Please fill in a valid email address...',
+      'en': 'Please fill in a valid email address...',
+    },
+    'lfrznop2': {
+      'es': 'Please fill in a valid email address...',
+      'en': 'Please fill in a valid email address...',
+    },
+    '840070gw': {
+      'es': 'Editar Perfil',
+      'en': 'Edit profile',
+    },
+    'cpvo0xvi': {
+      'es': 'Home',
+      'en': 'home',
+    },
+  },
+  // downloadapp
+  {
+    '9yw83l33': {
+      'es': 'Home',
+      'en': 'home',
+    },
+  },
+  // SettingsApp
+  {
+    '8ht0kwf0': {
+      'es': 'Page Title',
+      'en': '',
+    },
+    'iv8cqhro': {
+      'es': 'Home',
+      'en': '',
+    },
+  },
+  // View
+  {
+    'cokyzs2t': {
+      'es': 'AntonioMLZ',
+      'en': '',
+    },
+    '36v1cft4': {
+      'es': 'Descripcion Larga',
+      'en': '',
+    },
+  },
+  // download
+  {
+    '1q7ijg8j': {
+      'es': 'Recordatorio',
+      'en': '',
+    },
+    'sw0w9ipu': {
+      'es': 'Si no te deja decsrgar nada, haz click en el link url del sitio!',
+      'en': '',
+    },
+    'n0t4c8o3': {
+      'es': 'Cancelar',
+      'en': '',
+    },
+    'ie8wsbnt': {
+      'es': 'Aceptar',
+      'en': '',
+    },
+  },
+  // buttonAjustes
+  {
+    'xb054ffe': {
+      'es': 'Ajustes de Cuenta',
+      'en': '',
+    },
+    'qdek6neg': {
+      'es': 'Cambiar correo, resetear contraña, cambiar nombre..',
+      'en': '',
+    },
+    '4ybzr51d': {
+      'es': 'Ajustes de Aplicacion',
+      'en': '',
+    },
+    '7f54a7ko': {
+      'es': 'Cambiar idioma, Personalizar..',
+      'en': '',
+    },
+  },
+  // Miscellaneous
+  {
+    'o7w0molz': {
+      'es': '',
+      'en': '',
+    },
+    '7ns2bd74': {
+      'es': '',
+      'en': '',
+    },
+    'lnel42nx': {
+      'es': '',
+      'en': '',
+    },
+    '65svjzoa': {
+      'es': '',
+      'en': '',
+    },
+    'uc020bsu': {
+      'es': '',
+      'en': '',
+    },
+    'ptjbtpry': {
+      'es': '',
+      'en': '',
+    },
+    'jzhugadz': {
+      'es': '',
+      'en': '',
+    },
+    '4lm4y74v': {
+      'es': '',
+      'en': '',
+    },
+    '1rk5xmma': {
+      'es': '',
+      'en': '',
+    },
+    's4pnbwb2': {
+      'es': '',
+      'en': '',
+    },
+    's2ym8vgb': {
+      'es': '',
+      'en': '',
+    },
+    '2torx2oh': {
+      'es': '',
+      'en': '',
+    },
+    'u1if8mo0': {
+      'es': '',
+      'en': '',
+    },
+    'ugaesr98': {
+      'es': '',
+      'en': '',
+    },
+    'mkg3w1oa': {
+      'es': '',
+      'en': '',
+    },
+    'wx4st00x': {
+      'es': '',
+      'en': '',
+    },
+    'xtv2kt43': {
+      'es': '',
+      'en': '',
+    },
+    'qna9uwg0': {
+      'es': '',
+      'en': '',
+    },
+    'ycivbky8': {
+      'es': '',
+      'en': '',
+    },
+    '7re7k5u2': {
+      'es': '',
+      'en': '',
+    },
+  },
+].reduce((a, b) => a..addAll(b));

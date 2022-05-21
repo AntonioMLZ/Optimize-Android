@@ -1,5 +1,6 @@
 import '../backend/backend.dart';
 import '../downloadapp/downloadapp_widget.dart';
+import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -15,12 +16,35 @@ class AppsWidget extends StatefulWidget {
   _AppsWidgetState createState() => _AppsWidgetState();
 }
 
-class _AppsWidgetState extends State<AppsWidget> {
+class _AppsWidgetState extends State<AppsWidget> with TickerProviderStateMixin {
+  final animationsMap = {
+    'iconButtonOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      duration: 600,
+      fadeIn: true,
+      initialState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
+    ),
+  };
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
+    startPageLoadAnimations(
+      animationsMap.values
+          .where((anim) => anim.trigger == AnimationTrigger.onPageLoad),
+      this,
+    );
+
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Apps'});
   }
 
@@ -241,7 +265,10 @@ class _AppsWidgetState extends State<AppsWidget> {
                                             ),
                                           );
                                         },
-                                      ),
+                                      ).animated([
+                                        animationsMap[
+                                            'iconButtonOnPageLoadAnimation']
+                                      ]),
                                     ),
                                   ],
                                 ),

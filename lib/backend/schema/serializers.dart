@@ -6,6 +6,9 @@ import 'post_record.dart';
 import 'pages_record.dart';
 import 'pages2_record.dart';
 import 'splash_image_record.dart';
+import 'alertas_record.dart';
+import 'image_app_ajustes_record.dart';
+import 'image_app_account_record.dart';
 
 import 'index.dart';
 
@@ -22,6 +25,9 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   PagesRecord,
   Pages2Record,
   SplashImageRecord,
+  AlertasRecord,
+  ImageAppAjustesRecord,
+  ImageAppAccountRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())
