@@ -159,25 +159,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '8js6pl65': {
       'es': 'Home',
-      'en': 'MyTasks',
+      'en': 'home',
     },
   },
   // Apps
   {
     'iq8fea4r': {
       'es': 'Apps',
-      'en': 'MyTasks',
+      'en': 'apps',
     },
   },
   // Settings
   {
     'ryxhz0n7': {
       'es': 'Ajustes',
-      'en': '',
+      'en': 'Settings',
     },
     'y43xqq76': {
       'es': 'Settings',
-      'en': '',
+      'en': 'Settings',
     },
   },
   // MyProfile
@@ -196,15 +196,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'oxkxgscp': {
       'es': 'Desconectar',
-      'en': 'log out',
+      'en': 'Disconnect',
     },
     'lfe2fbdl': {
-      'es': 'Optimize Android v1.0.0',
+      'es': 'Optimize Android v1.6.0',
       'en': 'Optimize Android v1.0.0',
-    },
-    'gw3looxg': {
-      'es': 'Bienvenido',
-      'en': '',
     },
     'ekw7dqpc': {
       'es': 'Home',
@@ -298,21 +294,66 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '8ht0kwf0': {
       'es': 'Page Title',
-      'en': '',
+      'en': 'Page Title',
     },
     'iv8cqhro': {
       'es': 'Home',
-      'en': '',
+      'en': 'home',
     },
   },
   // View
   {
     'cokyzs2t': {
       'es': 'AntonioMLZ',
-      'en': '',
+      'en': 'AntonioMLZ',
     },
     '36v1cft4': {
       'es': 'Descripcion Larga',
+      'en': 'Long description',
+    },
+  },
+  // Admin
+  {
+    'cce7tk81': {
+      'es': 'Create Post',
+      'en': 'Create Post',
+    },
+    's18kkfng': {
+      'es': 'Descripcion',
+      'en': 'Description',
+    },
+    'dj8ov5l1': {
+      'es': 'Enter post details here...',
+      'en': 'Enter post details here...',
+    },
+    'j66bwxnt': {
+      'es': 'Descripcion Corta',
+      'en': 'Short description',
+    },
+    'yuq3u37x': {
+      'es': 'Enter post details here...',
+      'en': 'Enter post details here...',
+    },
+    'bzazg4l2': {
+      'es': 'Create Post',
+      'en': 'Create Post',
+    },
+  },
+  // Load
+  {
+    '5ehnfgqj': {
+      'es': 'Descargar',
+      'en': 'Download',
+    },
+  },
+  // vIEWS
+  {
+    '3qoavbvd': {
+      'es': 'Page Title',
+      'en': '',
+    },
+    '2f1vlsi9': {
+      'es': 'Home',
       'en': '',
     },
   },
@@ -320,42 +361,51 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '1q7ijg8j': {
       'es': 'Recordatorio',
-      'en': '',
+      'en': 'Reminder',
     },
     'sw0w9ipu': {
       'es': 'Si no te deja decsrgar nada, haz click en el link url del sitio!',
-      'en': '',
+      'en':
+          'If it doesn&#39;t let you download anything, click on the url link of the site!',
     },
     'n0t4c8o3': {
       'es': 'Cancelar',
-      'en': '',
+      'en': 'Cancel',
     },
     'ie8wsbnt': {
       'es': 'Aceptar',
-      'en': '',
+      'en': 'To accept',
     },
   },
   // buttonAjustes
   {
     'xb054ffe': {
       'es': 'Ajustes de Cuenta',
-      'en': '',
+      'en': 'Account Settings',
     },
     'qdek6neg': {
       'es': 'Cambiar correo, resetear contraña, cambiar nombre..',
-      'en': '',
+      'en': 'Change email, reset password, change name..',
     },
     '4ybzr51d': {
       'es': 'Ajustes de Aplicacion',
-      'en': '',
+      'en': 'Application Settings',
     },
     '7f54a7ko': {
       'es': 'Cambiar idioma, Personalizar..',
-      'en': '',
+      'en': 'Change language, Customize..',
     },
   },
   // Miscellaneous
   {
+    'vxjx23jv': {
+      'es': '',
+      'en': '',
+    },
+    'cmmf6840': {
+      'es': '',
+      'en': '',
+    },
     'o7w0molz': {
       'es': '',
       'en': '',

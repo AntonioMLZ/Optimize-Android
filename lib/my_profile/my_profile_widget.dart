@@ -36,6 +36,8 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
   Widget build(BuildContext context) {
     return StreamBuilder<List<UsersRecord>>(
       stream: queryUsersRecord(
+        queryBuilder: (usersRecord) => usersRecord.where('email',
+            isEqualTo: 'jarohxnocopyright@gmail.com'),
         singleRecord: true,
       ),
       builder: (context, snapshot) {
@@ -75,24 +77,20 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                 color: Colors.white,
                 size: 30,
               ),
-              onPressed: () async {
-                logFirebaseEvent('IconButton_ON_TAP');
-                logFirebaseEvent('IconButton_Navigate-Back');
-                Navigator.pop(context);
+              onPressed: () {
+                print('IconButton pressed ...');
               },
             ),
             title: Text(
-              FFLocalizations.of(context).getText(
-                'gw3looxg' /* Bienvenido */,
-              ),
-              style: FlutterFlowTheme.of(context).title2.override(
-                    fontFamily: 'Lexend Deca',
-                    color: Colors.white,
-                    fontSize: 22,
+              myProfileUsersRecord.displayName,
+              textAlign: TextAlign.center,
+              style: FlutterFlowTheme.of(context).title1.override(
+                    fontFamily: 'Ubuntu',
+                    fontWeight: FontWeight.w600,
                   ),
             ),
             actions: [],
-            centerTitle: true,
+            centerTitle: false,
             elevation: 2,
           ),
           backgroundColor: FlutterFlowTheme.of(context).darkBG,
@@ -111,21 +109,6 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                         border: Border.all(
                           color: FlutterFlowTheme.of(context).primaryColor,
                           width: 1,
-                        ),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(150, 0, 150, 0),
-                        child: AuthUserStreamWidget(
-                          child: Text(
-                            currentUserDisplayName,
-                            style: FlutterFlowTheme.of(context)
-                                .subtitle1
-                                .override(
-                                  fontFamily: 'Lexend Deca',
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryBlack,
-                                ),
-                          ),
                         ),
                       ),
                     ),
@@ -343,7 +326,7 @@ class _MyProfileWidgetState extends State<MyProfileWidget> {
                             ),
                             Text(
                               FFLocalizations.of(context).getText(
-                                'lfe2fbdl' /* Optimize Android v1.0.0 */,
+                                'lfe2fbdl' /* Optimize Android v1.6.0 */,
                               ),
                               textAlign: TextAlign.center,
                               style: FlutterFlowTheme.of(context).bodyText2,

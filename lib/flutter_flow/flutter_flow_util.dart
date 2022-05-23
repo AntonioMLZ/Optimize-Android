@@ -14,6 +14,7 @@ import 'lat_lng.dart';
 
 export 'lat_lng.dart';
 export 'place.dart';
+export '../app_state.dart';
 export 'dart:math' show min, max;
 export 'package:intl/intl.dart';
 export 'package:cloud_firestore/cloud_firestore.dart' show DocumentReference;

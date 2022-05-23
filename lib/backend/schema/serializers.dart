@@ -9,6 +9,8 @@ import 'splash_image_record.dart';
 import 'alertas_record.dart';
 import 'image_app_ajustes_record.dart';
 import 'image_app_account_record.dart';
+import 'anime_record.dart';
+import 'name_cap_record.dart';
 
 import 'index.dart';
 
@@ -28,6 +30,8 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   AlertasRecord,
   ImageAppAjustesRecord,
   ImageAppAccountRecord,
+  AnimeRecord,
+  NameCapRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())

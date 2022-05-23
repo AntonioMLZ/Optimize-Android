@@ -279,6 +279,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                     .doc(user.uid)
                                     .update(usersCreateData);
 
+                                logFirebaseEvent('Button_Auth');
+                                await sendEmailVerification();
                                 await Navigator.pushAndRemoveUntil(
                                   context,
                                   MaterialPageRoute(

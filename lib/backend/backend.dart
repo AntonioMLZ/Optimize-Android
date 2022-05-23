@@ -13,6 +13,8 @@ import 'schema/splash_image_record.dart';
 import 'schema/alertas_record.dart';
 import 'schema/image_app_ajustes_record.dart';
 import 'schema/image_app_account_record.dart';
+import 'schema/anime_record.dart';
+import 'schema/name_cap_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -29,6 +31,8 @@ export 'schema/splash_image_record.dart';
 export 'schema/alertas_record.dart';
 export 'schema/image_app_ajustes_record.dart';
 export 'schema/image_app_account_record.dart';
+export 'schema/anime_record.dart';
+export 'schema/name_cap_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Stream<List<UsersRecord>> queryUsersRecord({
@@ -402,6 +406,93 @@ Future<FFFirestorePage<ImageAppAccountRecord>> queryImageAppAccountRecordPage({
     queryCollectionPage(
       ImageAppAccountRecord.collection,
       ImageAppAccountRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query AnimeRecords (as a Stream and as a Future).
+Stream<List<AnimeRecord>> queryAnimeRecord({
+  Query Function(Query) queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      AnimeRecord.collection,
+      AnimeRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<AnimeRecord>> queryAnimeRecordOnce({
+  Query Function(Query) queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      AnimeRecord.collection,
+      AnimeRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<AnimeRecord>> queryAnimeRecordPage({
+  Query Function(Query) queryBuilder,
+  DocumentSnapshot nextPageMarker,
+  int pageSize,
+  bool isStream,
+}) =>
+    queryCollectionPage(
+      AnimeRecord.collection,
+      AnimeRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query NameCapRecords (as a Stream and as a Future).
+Stream<List<NameCapRecord>> queryNameCapRecord({
+  DocumentReference parent,
+  Query Function(Query) queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      NameCapRecord.collection(parent),
+      NameCapRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<NameCapRecord>> queryNameCapRecordOnce({
+  DocumentReference parent,
+  Query Function(Query) queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      NameCapRecord.collection(parent),
+      NameCapRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<NameCapRecord>> queryNameCapRecordPage({
+  DocumentReference parent,
+  Query Function(Query) queryBuilder,
+  DocumentSnapshot nextPageMarker,
+  int pageSize,
+  bool isStream,
+}) =>
+    queryCollectionPage(
+      NameCapRecord.collection(parent),
+      NameCapRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

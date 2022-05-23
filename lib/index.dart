@@ -11,3 +11,6 @@ export 'edit_profile/edit_profile_widget.dart' show EditProfileWidget;
 export 'downloadapp/downloadapp_widget.dart' show DownloadappWidget;
 export 'settings_app/settings_app_widget.dart' show SettingsAppWidget;
 export 'view/view_widget.dart' show ViewWidget;
+export 'admin/admin_widget.dart' show AdminWidget;
+export 'load/load_widget.dart' show LoadWidget;
+export 'v_i_e_w_s/v_i_e_w_s_widget.dart' show VIEWSWidget;

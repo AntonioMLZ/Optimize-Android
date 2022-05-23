@@ -1,9 +1,9 @@
 import '../backend/backend.dart';
-import '../downloadapp/downloadapp_widget.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../load/load_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -251,16 +251,20 @@ class _AppsWidgetState extends State<AppsWidget> with TickerProviderStateMixin {
                                               'IconButton_Navigate-To');
                                           await Navigator.push(
                                             context,
-                                            PageTransition(
-                                              type: PageTransitionType
-                                                  .bottomToTop,
-                                              duration:
-                                                  Duration(milliseconds: 250),
-                                              reverseDuration:
-                                                  Duration(milliseconds: 250),
-                                              child: DownloadappWidget(
-                                                url: listViewAppsRecord
+                                            MaterialPageRoute(
+                                              builder: (context) => LoadWidget(
+                                                name: listViewAppsRecord.name,
+                                                linkd: listViewAppsRecord
                                                     .linkDescargar,
+                                                img: listViewAppsRecord
+                                                    .linkImage,
+                                                shotdescripcion:
+                                                    listViewAppsRecord
+                                                        .descripcionCorta,
+                                                descripcion: listViewAppsRecord
+                                                    .descripcionLarga,
+                                                autor: listViewAppsRecord
+                                                    .nombreDelFabricante,
                                               ),
                                             ),
                                           );

@@ -86,23 +86,28 @@ class _DownloadappWidgetState extends State<DownloadappWidget> {
                                   ),
                                 ),
                               ),
-                              FlutterFlowIconButton(
-                                borderColor: Color(0x00FEFEFE),
-                                borderRadius: 30,
-                                borderWidth: 1,
-                                buttonSize: 60,
-                                fillColor: Color(0x00FEFEFE),
-                                icon: Icon(
-                                  Icons.close_rounded,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
-                                  size: 30,
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 15, 0),
+                                child: FlutterFlowIconButton(
+                                  borderColor: Color(0x00FEFEFE),
+                                  borderRadius: 30,
+                                  borderWidth: 1,
+                                  buttonSize: 60,
+                                  fillColor: Color(0x00FEFEFE),
+                                  icon: Icon(
+                                    Icons.close_rounded,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryColor,
+                                    size: 30,
+                                  ),
+                                  onPressed: () async {
+                                    logFirebaseEvent('IconButton_ON_TAP');
+                                    logFirebaseEvent(
+                                        'IconButton_Navigate-Back');
+                                    Navigator.pop(context);
+                                  },
                                 ),
-                                onPressed: () async {
-                                  logFirebaseEvent('IconButton_ON_TAP');
-                                  logFirebaseEvent('IconButton_Navigate-Back');
-                                  Navigator.pop(context);
-                                },
                               ),
                             ],
                           ),

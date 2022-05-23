@@ -26,6 +26,17 @@ abstract class AppsRecord implements Built<AppsRecord, AppsRecordBuilder> {
   String get linkImage;
 
   @nullable
+  @BuiltValueField(wireName: 'DescripcionLarga')
+  String get descripcionLarga;
+
+  @nullable
+  @BuiltValueField(wireName: 'NombreDelFabricante')
+  String get nombreDelFabricante;
+
+  @nullable
+  BuiltList<String> get imagenesg;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -33,7 +44,10 @@ abstract class AppsRecord implements Built<AppsRecord, AppsRecordBuilder> {
     ..name = ''
     ..descripcionCorta = ''
     ..linkDescargar = ''
-    ..linkImage = '';
+    ..linkImage = ''
+    ..descripcionLarga = ''
+    ..nombreDelFabricante = ''
+    ..imagenesg = ListBuilder();
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('apps');
@@ -60,6 +74,8 @@ Map<String, dynamic> createAppsRecordData({
   String descripcionCorta,
   String linkDescargar,
   String linkImage,
+  String descripcionLarga,
+  String nombreDelFabricante,
 }) =>
     serializers.toFirestore(
         AppsRecord.serializer,
@@ -67,4 +83,7 @@ Map<String, dynamic> createAppsRecordData({
           ..name = name
           ..descripcionCorta = descripcionCorta
           ..linkDescargar = linkDescargar
-          ..linkImage = linkImage));
+          ..linkImage = linkImage
+          ..descripcionLarga = descripcionLarga
+          ..nombreDelFabricante = nombreDelFabricante
+          ..imagenesg = null));
