@@ -141,142 +141,152 @@ class _AppsWidgetState extends State<AppsWidget> with TickerProviderStateMixin {
                       itemBuilder: (context, listViewIndex) {
                         final listViewAppsRecord =
                             listViewAppsRecordList[listViewIndex];
-                        return Container(
-                          width: MediaQuery.of(context).size.width,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            color: Color(0x00FEFEFE),
-                            boxShadow: [
-                              BoxShadow(
-                                blurRadius: 3,
-                                color: Color(0x410C0909),
-                                offset: Offset(0, 1),
-                              )
-                            ],
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 1, 1, 1),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(12),
-                                    child: Image.network(
-                                      listViewAppsRecord.linkImage,
-                                      width: 70,
-                                      height: 100,
-                                      fit: BoxFit.cover,
+                        return Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: 100,
+                            decoration: BoxDecoration(
+                              color: Color(0x00FEFEFE),
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 3,
+                                  color: Color(0x410C0909),
+                                  offset: Offset(0, 1),
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(16),
+                              border: Border.all(
+                                color: Color(0xFF232121),
+                              ),
+                            ),
+                            child: Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 1, 1, 1),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(12),
+                                      child: Image.network(
+                                        listViewAppsRecord.linkImage,
+                                        width: 70,
+                                        height: 100,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8, 8, 4, 0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          listViewAppsRecord.name,
-                                          style: FlutterFlowTheme.of(context)
-                                              .subtitle1
-                                              .override(
-                                                fontFamily: 'Lexend Deca',
-                                                color: Colors.white,
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.w500,
+                                  Expanded(
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          8, 8, 4, 0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            listViewAppsRecord.name,
+                                            style: FlutterFlowTheme.of(context)
+                                                .subtitle1
+                                                .override(
+                                                  fontFamily: 'Lexend Deca',
+                                                  color: Colors.white,
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                          ),
+                                          Expanded(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0, 4, 8, 0),
+                                              child: AutoSizeText(
+                                                listViewAppsRecord
+                                                    .descripcionCorta
+                                                    .maybeHandleOverflow(
+                                                  maxChars: 70,
+                                                  replacement: '…',
+                                                ),
+                                                textAlign: TextAlign.start,
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyText1
+                                                    .override(
+                                                      fontFamily: 'Lexend Deca',
+                                                      color: Color(0xFF57636C),
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                    ),
                                               ),
-                                        ),
-                                        Expanded(
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 4, 8, 0),
-                                            child: AutoSizeText(
-                                              listViewAppsRecord
-                                                  .descripcionCorta
-                                                  .maybeHandleOverflow(
-                                                maxChars: 70,
-                                                replacement: '…',
-                                              ),
-                                              textAlign: TextAlign.start,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyText1
-                                                  .override(
-                                                    fontFamily: 'Lexend Deca',
-                                                    color: Color(0xFF57636C),
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
                                             ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 10, 0, 0),
-                                      child: FlutterFlowIconButton(
-                                        borderColor: Color(0x00FEFEFE),
-                                        borderRadius: 30,
-                                        borderWidth: 1,
-                                        buttonSize: 60,
-                                        fillColor: Color(0x00FEFEFE),
-                                        icon: Icon(
-                                          Icons.cloud_download,
-                                          color: Color(0xFFE4E4E4),
-                                          size: 30,
-                                        ),
-                                        onPressed: () async {
-                                          logFirebaseEvent('IconButton_ON_TAP');
-                                          logFirebaseEvent(
-                                              'IconButton_Navigate-To');
-                                          await Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) => LoadWidget(
-                                                name: listViewAppsRecord.name,
-                                                linkd: listViewAppsRecord
-                                                    .linkDescargar,
-                                                img: listViewAppsRecord
-                                                    .linkImage,
-                                                shotdescripcion:
-                                                    listViewAppsRecord
-                                                        .descripcionCorta,
-                                                descripcion: listViewAppsRecord
-                                                    .descripcionLarga,
-                                                autor: listViewAppsRecord
-                                                    .nombreDelFabricante,
+                                  Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 10, 0, 0),
+                                        child: FlutterFlowIconButton(
+                                          borderColor: Color(0x00FEFEFE),
+                                          borderRadius: 30,
+                                          borderWidth: 1,
+                                          buttonSize: 60,
+                                          fillColor: Color(0x00FEFEFE),
+                                          icon: Icon(
+                                            Icons.arrow_forward_ios_sharp,
+                                            color: Color(0xFFE4E4E4),
+                                            size: 30,
+                                          ),
+                                          onPressed: () async {
+                                            logFirebaseEvent(
+                                                'IconButton_ON_TAP');
+                                            logFirebaseEvent(
+                                                'IconButton_Navigate-To');
+                                            await Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    LoadWidget(
+                                                  name: listViewAppsRecord.name,
+                                                  linkd: listViewAppsRecord
+                                                      .linkDescargar,
+                                                  img: listViewAppsRecord
+                                                      .linkImage,
+                                                  shotdescripcion:
+                                                      listViewAppsRecord
+                                                          .descripcionCorta,
+                                                  descripcion:
+                                                      listViewAppsRecord
+                                                          .descripcionLarga,
+                                                  autor: listViewAppsRecord
+                                                      .nombreDelFabricante,
+                                                ),
                                               ),
-                                            ),
-                                          );
-                                        },
-                                      ).animated([
-                                        animationsMap[
-                                            'iconButtonOnPageLoadAnimation']
-                                      ]),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                            );
+                                          },
+                                        ).animated([
+                                          animationsMap[
+                                              'iconButtonOnPageLoadAnimation']
+                                        ]),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         );

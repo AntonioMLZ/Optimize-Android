@@ -57,49 +57,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'home',
     },
   },
-  // Login
-  {
-    'we28g2am': {
-      'es': 'Email Address',
-      'en': 'email address',
-    },
-    'x1bwp0hl': {
-      'es': 'Your email...',
-      'en': 'Your email...',
-    },
-    'fs48slfl': {
-      'es': 'Password',
-      'en': 'Password',
-    },
-    'me7ryugz': {
-      'es': 'Enter your password here...',
-      'en': 'Enter your password here...',
-    },
-    'c3hb8t27': {
-      'es': 'Login',
-      'en': 'Login',
-    },
-    'iszm3vqb': {
-      'es': 'Don’t have an account yet? ',
-      'en': 'Don&#39;t have an account yet?',
-    },
-    'ln06xegs': {
-      'es': 'Register',
-      'en': 'Register',
-    },
-    'e23h383h': {
-      'es': 'Please fill in a valid email address...',
-      'en': 'Please fill in a valid email address...',
-    },
-    'r8dt13y6': {
-      'es': 'That password doesn\'t match.',
-      'en': 'That password doesn&#39;t match.',
-    },
-    '6xbeu1as': {
-      'es': 'Home',
-      'en': 'home',
-    },
-  },
   // Register
   {
     'ngcxqpgn': {
@@ -151,11 +108,54 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'home',
     },
   },
+  // Login
+  {
+    'we28g2am': {
+      'es': 'Email Address',
+      'en': 'email address',
+    },
+    'x1bwp0hl': {
+      'es': 'Your email...',
+      'en': 'Your email...',
+    },
+    'fs48slfl': {
+      'es': 'Password',
+      'en': 'Password',
+    },
+    'me7ryugz': {
+      'es': 'Enter your password here...',
+      'en': 'Enter your password here...',
+    },
+    'c3hb8t27': {
+      'es': 'Login',
+      'en': 'Login',
+    },
+    'iszm3vqb': {
+      'es': 'Don’t have an account yet? ',
+      'en': 'Don&#39;t have an account yet?',
+    },
+    'ln06xegs': {
+      'es': 'Register',
+      'en': 'Register',
+    },
+    'e23h383h': {
+      'es': 'Please fill in a valid email address...',
+      'en': 'Please fill in a valid email address...',
+    },
+    'r8dt13y6': {
+      'es': 'That password doesn\'t match.',
+      'en': 'That password doesn&#39;t match.',
+    },
+    '6xbeu1as': {
+      'es': 'Home',
+      'en': 'home',
+    },
+  },
   // Home
   {
-    '17uf2phm': {
-      'es': 'Informacion:',
-      'en': 'Information:',
+    '2rn9piuc': {
+      'es': 'Musica Online',
+      'en': '',
     },
     '8js6pl65': {
       'es': 'Home',
@@ -171,6 +171,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Settings
   {
+    '6he4nf01': {
+      'es': 'En Proceso...',
+      'en': '',
+    },
     'ryxhz0n7': {
       'es': 'Ajustes',
       'en': 'Settings',
@@ -348,11 +352,29 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // vIEWS
   {
-    '3qoavbvd': {
+    'jwbhnx3z': {
       'es': 'Page Title',
       'en': '',
     },
-    '2f1vlsi9': {
+    'qtnebx4c': {
+      'es': 'Home',
+      'en': '',
+    },
+  },
+  // adds
+  {
+    '808gfr70': {
+      'es': 'Home',
+      'en': '',
+    },
+  },
+  // MusicPlayer
+  {
+    '32p9ub63': {
+      'es': 'REPRODUCTO DE MUSICA',
+      'en': '',
+    },
+    'mmoa2tou': {
       'es': 'Home',
       'en': '',
     },

@@ -1,4 +1,3 @@
-import '../components/button_ajustes_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -44,6 +43,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
           onTap: () => FocusScope.of(context).unfocus(),
           child: Column(
             mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 0.2, 0, 0),
@@ -61,10 +61,13 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                   ),
                 ),
               ),
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
-                  child: ButtonAjustesWidget(),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 330, 0, 0),
+                child: Text(
+                  FFLocalizations.of(context).getText(
+                    '6he4nf01' /* En Proceso... */,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyText1,
                 ),
               ),
             ],

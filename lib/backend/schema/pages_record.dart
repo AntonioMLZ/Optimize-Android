@@ -14,11 +14,16 @@ abstract class PagesRecord implements Built<PagesRecord, PagesRecordBuilder> {
   String get pageName;
 
   @nullable
+  @BuiltValueField(wireName: 'WidgetDriwer')
+  String get widgetDriwer;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
-  static void _initializeBuilder(PagesRecordBuilder builder) =>
-      builder..pageName = '';
+  static void _initializeBuilder(PagesRecordBuilder builder) => builder
+    ..pageName = ''
+    ..widgetDriwer = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('Pages');
@@ -43,6 +48,10 @@ abstract class PagesRecord implements Built<PagesRecord, PagesRecordBuilder> {
 
 Map<String, dynamic> createPagesRecordData({
   String pageName,
+  String widgetDriwer,
 }) =>
     serializers.toFirestore(
-        PagesRecord.serializer, PagesRecord((p) => p..pageName = pageName));
+        PagesRecord.serializer,
+        PagesRecord((p) => p
+          ..pageName = pageName
+          ..widgetDriwer = widgetDriwer));

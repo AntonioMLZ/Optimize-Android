@@ -1,7 +1,7 @@
 // Export pages
 export 'splash_screen/splash_screen_widget.dart' show SplashScreenWidget;
-export 'login/login_widget.dart' show LoginWidget;
 export 'register/register_widget.dart' show RegisterWidget;
+export 'login/login_widget.dart' show LoginWidget;
 export 'home/home_widget.dart' show HomeWidget;
 export 'apps/apps_widget.dart' show AppsWidget;
 export 'settings/settings_widget.dart' show SettingsWidget;
@@ -14,3 +14,5 @@ export 'view/view_widget.dart' show ViewWidget;
 export 'admin/admin_widget.dart' show AdminWidget;
 export 'load/load_widget.dart' show LoadWidget;
 export 'v_i_e_w_s/v_i_e_w_s_widget.dart' show VIEWSWidget;
+export 'adds/adds_widget.dart' show AddsWidget;
+export 'music_player/music_player_widget.dart' show MusicPlayerWidget;
